@@ -1,3 +1,5 @@
+# elastic_app/utils/search.py
+
 import json
 import logging
 from elasticsearch import Elasticsearch
@@ -33,14 +35,15 @@ def format_search_results(results):
     for hit in results:
         item = {
             'title': hit['_source'].get('title', ''),
-            'director': hit['_source'].get('director', '')
+            'director': hit['_source'].get('director', ''),
+            'image': hit['_source'].get('image', ''),
+            'url': hit['_source'].get('url', '')
         }
         formatted_results.append(item)
     return formatted_results
 
-def search_movies(query):
-    """Search movies based on the provided query."""
-    cast  = 'morgan freeman'.title()
+def search_movies(cast):
+    """Search movies based on the provided cast."""
     search_query = {
         "query": {
             "match": {
@@ -57,8 +60,4 @@ def search_movies(query):
 
     return formatted_results
 
-# if __name__ == "__main__":
-#     # Example usage
-#     query = "Morgan Freeman"
-#     results = search_movies(query)
-#     print(json.dumps(results, indent=2))
+
