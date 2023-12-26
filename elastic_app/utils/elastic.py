@@ -12,7 +12,7 @@ es = Elasticsearch(
     es_url,
     verify_certs=True,
     ca_certs=ca_certificate_path,
-    basic_auth=('elastic', 'p+y11vnmA_RR-D3blhax')
+    basic_auth=('username', 'password')
 )
 
 # Index settings and mappings
