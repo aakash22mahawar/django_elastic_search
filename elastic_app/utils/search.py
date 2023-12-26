@@ -14,7 +14,7 @@ es = Elasticsearch(
     es_url,
     verify_certs=True,
     ca_certs="/Users/aakash.mahawar/http_ca.crt",
-    basic_auth=('elastic', 'p+y11vnmA_RR-D3blhax')
+    basic_auth=('username', 'password')
 )
 
 # Index name
